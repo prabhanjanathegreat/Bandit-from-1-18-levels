@@ -75,3 +75,27 @@ The password seems to be in the -file07 file and to read it I ran "cat <-file07"
 Username: bandit5
 
 Password: koReBOKuIDDepwhWk7jZC0RTdopnAYKh
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Bandit - Level 6
+
+http://overthewire.org/wargames/bandit/bandit6.html
+The password for the next level is stored in a file somewhere under the inhere directory and has all of the following properties:
+
+human-readable
+
+1033 bytes in size
+
+not executable
+
+To start I "cd" into the inhere folder and ran "ls" to see the files and folders and noticed that there were a bunch of folder and inside those folders a couple of files.
+
+To make it easier and not have to read every file I tried to "find" a way to look for the specific file with the properties given. I looked through the manual page of the find command and looked for ways of pointing out the properties of the file. I found the -size, -type, and -executable options.
+
+I put them together with the properties given and I ran the "find" command below:
+
+find -type f -size 1033c ! -executable
+
+It looks for a file that is size 1033 bytes and it is not executable. The output was ./maybehere07/.file2 and then I read the file I see that the password is: .
+
